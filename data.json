@@ -6,7 +6,7 @@
    "mod": "Canil da UESB",
    "nome": "Serena",
    "sexo": "Fêmea",
-   "idade": "Cerca de 3 anos",
+   "idade": "Cerca de 3 anos e 1 mês",
    "status": "Comunitário",
    "ano": [
     2026,
@@ -732,14 +732,14 @@
   ],
   "footer": "CATAUlogo · Catálogo de cães e gatos da UESB em Vitória da Conquista",
   "background": {
-   "blue": "#34495c",
-   "pink": "#633b30",
-   "scale": 183,
-   "patternOpacity": 19,
+   "blue": "#2a1a4a",
+   "pink": "#14101f",
+   "scale": 219,
+   "patternOpacity": 100,
    "aboutStart": "#1c2922",
    "aboutEnd": "#222b38",
-   "primary": "#a9bad2",
-   "secondary": "#f08a45",
+   "primary": "#8a6cff",
+   "secondary": "#ff6b9a",
    "motionSeconds": 36,
    "motionEnabled": true,
    "preset": "custom",
@@ -786,7 +786,7 @@
      "speed": 36
     }
    ],
-   "presetName": "CATAUlogo original"
+   "presetName": "Roxo profundo"
   }
  }
 }
