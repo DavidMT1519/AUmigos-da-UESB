@@ -82,3 +82,55 @@
 #bgdlg.appearance-dialog{width:min(1060px,calc(100vw - 24px));height:min(900px,94vh);max-width:1060px;max-height:94vh;padding:0;overflow:hidden;background:#0f1116;border:1px solid #2b303c;border-radius:16px}
 #bgdlg #appearanceEditorFrame{display:block;width:100%;height:100%;min-height:620px;border:0;background:#0f1116}
 #bgdlg .appearance-bridge{display:none!important}
+
+
+/* Controles administrativos: visibilidade estrita e acabamento em vidro */
+body:not(.isadm) .vc .vx,
+body:not(.isadm) .card .ph .ex,
+body:not(.isadm) .card .ph .dx,
+body:not(.isadm) .animal-profile .fic-actions .exf,
+body:not(.isadm) .animal-profile .fic-actions .dxf,
+body:not(.isadm) #bedit,
+body:not(.isadm) #vadd {
+  display:none !important;
+}
+body.isadm .vc .vx,
+body.isadm .card .ph .ex,
+body.isadm .card .ph .dx,
+body.isadm .animal-profile .fic-actions .exf,
+body.isadm .animal-profile .fic-actions .dxf,
+body.isadm #bedit {
+  background:rgba(225,238,229,.075)!important;
+  background-image:none!important;
+  color:var(--ink)!important;
+  border:1px solid rgba(205,226,211,.22)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 5px 18px rgba(0,0,0,.18)!important;
+  -webkit-backdrop-filter:blur(14px) saturate(125%)!important;
+  backdrop-filter:blur(14px) saturate(125%)!important;
+  animation:none!important;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease!important;
+}
+body.isadm .vc .vx:hover,
+body.isadm .card .ph .ex:hover,
+body.isadm .animal-profile .fic-actions .exf:hover,
+body.isadm #bedit:hover {
+  background:rgba(225,238,229,.14)!important;
+  border-color:rgba(205,226,211,.38)!important;
+}
+body.isadm .vc .vrem,
+body.isadm .card .ph .dx,
+body.isadm .animal-profile .fic-actions .dxf {
+  color:#efb4b4!important;
+  border-color:rgba(224,151,151,.28)!important;
+  background:rgba(150,62,67,.12)!important;
+  background-image:none!important;
+}
+body.isadm .vc .vrem:hover,
+body.isadm .card .ph .dx:hover,
+body.isadm .animal-profile .fic-actions .dxf:hover {
+  background:rgba(150,62,67,.22)!important;
+}
+body.isadm #bedit {
+  border-radius:999px!important;
+  padding:10px 16px!important;
+}
