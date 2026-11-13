@@ -1017,3 +1017,56 @@ button.back-lightbox-close:not(.btn):not(.chip):not(.pick):hover,button.back-lig
 body.bg-motion-on { animation: catau-original-bg-drift var(--bg-motion-duration, 36s) linear infinite; }
 body.bg-motion-off { animation: none !important; }
 @media (prefers-reduced-motion: reduce) { body { animation: none !important; } }
+
+
+/* Perfil do animal: layout horizontal para o zoom padrão de desktop */
+@media (min-width: 1100px){
+  .animal-profile{
+    width:min(100% - 48px, 1800px)!important;
+    max-width:1800px!important;
+    padding-left:24px!important;
+    padding-right:24px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+  .animal-profile .fic{
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)!important;
+    gap:clamp(24px,2vw,36px)!important;
+    padding-bottom:24px!important;
+    align-items:start!important;
+  }
+  .animal-profile .gal .main{
+    aspect-ratio:16/10!important;
+    max-height:58vh!important;
+    min-height:320px;
+  }
+  .animal-profile .thumbs{
+    margin-top:12px!important;
+    gap:8px!important;
+  }
+  .animal-profile .thumbs button{
+    min-height:58px!important;
+    aspect-ratio:1.35/1!important;
+  }
+  .animal-profile .fic-info{
+    min-width:0;
+  }
+  .animal-profile .fic-info>h3{
+    margin-top:14px!important;
+    margin-bottom:6px!important;
+  }
+  .animal-profile .fic .kv{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+  }
+  .animal-profile .fic .kv>div{
+    padding:10px 12px!important;
+  }
+}
+@media (min-width:1500px){
+  .animal-profile .fic{
+    grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr)!important;
+    gap:38px!important;
+  }
+  .animal-profile .gal .main{max-height:56vh!important}
+}
