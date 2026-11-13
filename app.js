@@ -141,7 +141,7 @@ const pin=`<svg class="pin" viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 
 const esc=s=>s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 
 function art(d,v=0){
- if(d.foto&&d.foto.length&&d.foto[v%d.foto.length]){const k=v%d.foto.length;return `<img src="${PREV[d.foto[k]]||d.foto[k]}" alt="Foto de ${d.nome}" style="width:100%;height:100%;object-fit:cover">${creditoFoto(d,k)?`<span class="cr">${creditoFoto(d,k)}</span>`:""}`}
+ if(d.foto&&d.foto.length&&d.foto[v%d.foto.length]){const k=v%d.foto.length;return `<img src="${esc(assetUrl(PREV[d.foto[k]]||d.foto[k]))}" alt="Foto de ${d.nome}" style="width:100%;height:100%;object-fit:cover">${creditoFoto(d,k)?`<span class="cr">${creditoFoto(d,k)}</span>`:""}`}
  const bgs=[d.bg,"#e9ecdf","#d9dff0"],dx=[0,-18,16][v],tilt=[0,-6,7][v];
  return `<svg viewBox="0 0 400 440" role="img" aria-label="Imagem ilustrativa de ${esc(d.nome)}"><rect width="400" height="440" fill="${bgs[v]}"/><ellipse cx="200" cy="470" rx="200" ry="120" fill="${d.coat}" opacity=".9"/><g transform="translate(${dx} 0) rotate(${tilt} 200 260)">${d.esp==="Gato"?`<path d="M114 60l-16 120 88-46zM286 60l16 120-88-46z" fill="${d.ear}"/><ellipse cx="200" cy="220" rx="102" ry="92" fill="${d.coat}"/><path d="M60 250l80 6M60 280l80-12M340 250l-80 6M340 280l-80-12" stroke="#17231d" stroke-width="3" opacity=".5"/>`:`<path d="M112 130c-46 0-56 88-34 130 20 10 50-20 56-70zM288 130c46 0 56 88 34 130-20 10-50-20-56-70z" fill="${d.ear}"/><ellipse cx="200" cy="215" rx="98" ry="104" fill="${d.coat}"/>`}<ellipse cx="200" cy="262" rx="52" ry="42" fill="#fff" opacity=".28"/><circle cx="160" cy="200" r="12" fill="#17231d"/><circle cx="240" cy="200" r="12" fill="#17231d"/><circle cx="164" cy="196" r="3.5" fill="#fff"/><circle cx="244" cy="196" r="3.5" fill="#fff"/><ellipse cx="200" cy="250" rx="19" ry="14" fill="#17231d"/><path d="M200 264v14M182 282c10 8 26 8 36 0" stroke="#17231d" stroke-width="4" fill="none" stroke-linecap="round"/></g></svg>`;
 }
@@ -324,7 +324,7 @@ function ficha(id){
  <h3>História</h3><p class="fic-story">${esc(d.hist)}</p>
  <h3>Personalidade</h3><div class="traits">${d.pers.map(p=>`<span>${esc(p)}</span>`).join("")}</div>
  <h3>Características</h3><div class="traits">${(Array.isArray(d.car)?d.car:(d.car||"").split(",").filter(Boolean)).map(p=>`<span>${esc(p.trim())}</span>`).join("")}</div>
- <div class="fic-actions"><a class="btn" href="#/" onclick="event.preventDefault();location.hash='#/';setTimeout(()=>document.getElementById('ajudar')?.scrollIntoView({behavior:'smooth'}),80)">${d.status==="Disponível para adoção"?"Quero adotar "+esc(d.nome):d.status==="Adotado"?"Ajude mais AUmigos a serem adotados":"Como ajudar "+esc(d.nome)+"?"}</a> <button class="btn ghost exf" data-id="${d.id}">Editar animal</button> <button class="btn ghost dxf" data-id="${d.id}">Excluir animal</button></div>
+ <div class="fic-actions"><button class="btn ghost exf" data-id="${d.id}">Editar animal</button> <button class="btn ghost dxf" data-id="${d.id}">Excluir animal</button></div>
  </div></article></div>`;
  const thumbs=document.querySelector(".thumbs"),mainPhoto=document.getElementById("main"),totalPhotos=d.foto&&d.foto.length?d.foto.length:3;
  function renderThumbs(active){thumbs.innerHTML=Array.from({length:totalPhotos},(_,i)=>i).map(i=>`<button data-i="${i}" aria-label="Foto ${i+1}" ${i===active?'aria-current="true"':""}>${art(d,i)}</button>`).join("");thumbs.querySelectorAll("button").forEach(b=>b.onclick=()=>selectPhoto(Number(b.dataset.i)))}
